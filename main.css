@@ -1,0 +1,535 @@
+ 
+.video-container {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+  }
+  
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    text-align: center;
+    z-index: 1;
+  }
+  
+  .marquee {
+    position: absolute;
+    top: -20%;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  
+  .marquee p {
+    font-size: 2rem;
+    display: inline-block;
+    transform: translateX(100%);
+    animation: marquee 20s linear infinite;
+  }
+  
+  #video-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+  }
+
+  #loading-overlay {
+    padding-top: 325px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+    width: 100%;
+  }
+ 
+  .loader {
+    border: 12px solid #f3f3f3;
+    border-top: 12px solid #7fccff;
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    animation: spin 1s linear infinite;
+    margin-bottom: 10px;
+  }
+  
+  #video-container {
+    display: none;
+  }
+
+  #loading-text {
+    font-weight: bold;
+    font-size: 3rem;
+    margin-top: 20px;
+    animation: moveUpDown 0.5s infinite alternate, spinFadeIn 1s ease-in-out forwards;
+    color: #000000;
+  }
+
+  .dot1, .dot2, .dot3 {
+    display: inline-block;
+    opacity: 0;
+    animation: fadeInOut 1.5s infinite;
+  }
+  
+  .dot2 {
+    animation-delay: 0.5s;
+  }
+  
+  .dot3 {
+    animation-delay: 1s;
+  }
+  
+  .hidden {
+    display: none;
+  }
+
+  .dialog.clicked {
+    animation: clickAnimation 0.3s ease;
+  }
+  
+  .dialog {
+    width: 100%;
+    height: 80px;
+    margin-bottom: 20px;
+    background-color: rgba(173, 216, 230, 0.574);
+    backdrop-filter: blur(40px);
+    border-radius: 10px;
+    cursor: pointer;
+  }
+
+  .container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+    padding: 70px 60px 0 60px;
+    }
+
+  .dialog-col {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .dialog-row {
+    display: flex;
+  }
+
+  .dialog-col-first {
+    margin-right: 20px;
+  }
+
+  .fb, .disc, .steam, .hoyoacc {
+  flex: 1;
+  height: 200px;
+}
+
+.fb, .disc, .steam, .music {
+margin-right: 15px;
+}
+
+
+.me, .about {
+height: 200px;
+}
+
+.waifu {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .waifu-header {
+    background-color: lightgray;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 10px;
+    font-family: "Dancing Script", cursive;
+    font-size: 2.5rem;
+    text-align: center;
+  }
+  
+  .waifu-content {
+    flex: 1;
+    padding: 10px;
+    position: relative;
+    }
+
+  .waifu-content img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 10px;
+  }
+
+  .prev-btn, .next-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.5);
+    border: none;
+    color: black;
+    font-size: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    }
+
+    .prev-btn:hover, .next-btn:hover {
+  transform: translateY(-50%) scale(0.9);
+    }
+
+.prev-btn {
+  left: 10px;
+}
+
+.next-btn {
+  right: 10px;
+}
+
+.dialog.me {
+    display: flex;
+    align-items: center;
+}
+
+.image-frame {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin: 0 10px 0 10px;
+    overflow: hidden;
+  }
+
+.first-image,
+.second-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.first-image {
+  width: 160px;
+  height: 160px;
+  z-index: 1;
+}
+
+.second-image {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+}
+
+.text-frame {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    font-size: 2.5rem;
+}
+
+.upper-text,
+.lower-text {
+    margin: 10px 0 10px 0;
+    flex: 1;
+}
+
+.lower-text {
+    font-weight: 500;
+    font-size: 2.2rem;
+}
+
+.upper-text {
+  font-weight: bold;
+  font-size: 3rem;
+}
+
+.upper-text p,
+.lower-text p {
+    margin: 0;
+}
+
+.dialog.me {
+  width: 45%;
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+.dialog.me.expanded {
+  animation-name: expandFromLeft;
+}
+
+.dialog.me.shrinked {
+  animation-name: shrinkToLeft;
+}
+
+.arrow-img {
+  z-index: 9;
+  position: relative;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+
+.arrow-img:hover {
+  transform: scale(1.1);
+}
+
+.btoverlay {
+  position: absolute;
+  top: 0;
+  right: 0; 
+  height: 100%; 
+  width: 50px; 
+  background-color: lightgray; 
+  z-index: -1; 
+}
+
+.tooltip {
+  z-index: 10;
+  position: absolute;
+  top: 40px; 
+  left: 90%; 
+  transform: translateX(-50%); 
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  padding: 5px 10px;
+  border-radius: 10px;
+  font-size: 14px;
+  visibility: visible; 
+  opacity: 1; 
+  transition: opacity 0.3s, visibility 0.3s; 
+}
+
+.button-container:hover .tooltip {
+  visibility: visible; 
+  opacity: 1;
+}
+
+.hidden-img {
+  height: 150px;
+  padding-left: 95px;
+}
+
+.hidden-tooltip {
+  font-size: 2rem;
+  padding-right: 80px;
+}
+
+.hidden {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.hidden.show {
+  opacity: 1;
+  pointer-events: auto;
+  display: block;
+}
+
+
+.about {
+  display: flex;
+  flex-direction: column;
+}
+
+.title-about {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin: 20px 0 0px 20px;
+}
+
+.info-about {
+  font-size: 2.2rem;
+  font-weight: 500;
+  line-height: 40px;
+  margin: 10px 20px 10px 20px;
+}
+
+.title-tooltip, .info-tooltip {
+  width: 200px;
+  padding: 10px;
+  margin: 0;
+}
+
+.title-tooltip {
+  font-weight: bold;
+  font-size: 1.8rem;
+  text-align: center;
+}
+
+.info-tooltip {
+  font-size: 1.9rem;
+  text-align: center;
+}
+
+.fb, .disc, .steam, .hoyoacc {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.fb-icon, .disc-icon, .steam-icon {
+  position: absolute;
+  top: 0;
+}
+
+.message-box {
+  padding-top: 100px;
+  align-items: center;
+  flex-direction: column; 
+}
+
+.fb-icon img, .disc-icon img, .steam-icon img {
+  padding-top: 16px;
+  width: 120px;
+  height: 135px;
+}
+
+.dialog.hoyoacc {
+  display: flex;
+  align-items: center;
+}
+
+.left-button, .right-button {
+  margin: 0 10px;
+}
+
+.left-button i, .right-button i {
+  font-size: 24px; 
+  color: #000; 
+  cursor: pointer; 
+}
+
+.content {
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  padding: 36px 0 10px 0;
+}
+
+.image-container, .text-container {
+  margin: 0 10px;
+}
+
+#hoyoacc-image {
+  max-width: 70px;
+  max-height: 80px;
+  border-radius: 10px;
+}
+
+#hoyoacc-name {
+  font-weight: bold; 
+  font-size: 1.8rem;
+  text-align: center;
+}
+
+ #hoyoacc-info {
+  text-align: center;
+  font-size: 1.9rem;
+  padding: 10px 0 10px 0;
+  margin: 0; 
+}
+
+#hoyoacc-name {
+  padding: 10px 0 10px 0;
+  margin: 0;
+}
+
+.dialog.troll {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.image-left,
+.image-right {
+  flex: 0 0 auto;
+  margin: 0 10px; 
+}
+
+.image-left img,
+.image-right img {
+  width: 60px;
+  height: 60px;
+}
+
+.link-middle {
+  font-weight: bold;
+  font-size: 2.5rem;
+  flex: 1;
+  text-align: center; 
+}
+
+.link-middle a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.link-middle a:hover {
+  color: rgb(20, 231, 255); 
+}
+
+.dialog.end {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dialog.end .image-left,
+.dialog.end .image-right {
+  justify-content: center;
+  display: flex;
+  flex: 1;
+}
+
+.dialog.end .text-middle {
+  font-weight: bold;
+  font-size: 2.5rem;
+  flex: 3;
+  text-align: center;
+}
+
+.none{
+  width: 10px;
+  height: 115px;
+}
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+  

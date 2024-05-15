@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KaminagiShiori</title>
+    <link rel="icon" href="picture/ayakatea.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="base.css">
+    <link rel="stylesheet" href="animation.css">
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div id="loading-overlay">
+        <div class="loader"></div>
+        <div id="loading-text">Shiori is here!!!<span class="dot1">.</span><span class="dot2">.</span><span class="dot3">.</span></div>
+        <div id="loading-text">(づ｡◕‿‿◕｡)づ</div>
+    </div>
+    <div id="video-container">
+      <video autoplay muted loop id="video-bg">
+        <source src="picture/ayaka kwaiii.mp4" type="video/mp4">
+      </video>
+
+      <header>
+          <div class="marquee">
+            <p>️️🎉🎉HEHEHE!!! Shiori desu~~~🎉️🎉</p>
+          </div>
+      </header>
+
+      <div class="container" id="container">
+          <div class="dialog-col dialog-col-first">
+            <div class="dialog me">
+              <div class="image-frame">
+                  <img class="first-image" src="https://fastcdn.hoyoverse.com/static-resource-v2/2024/04/10/fdf0f2f863994f4fe7ee05332a63915f_1336417283001122646.webp?x-oss-process=image/resize,m_fixed,h_318,w_318" alt="Description of the image">
+                  <img class="second-image" src="picture/ayaka.jpg" alt="Description of the image">
+              </div>
+              <div class="text-frame">
+                  <div class="upper-text">
+                      <p>Kaminagi Shiori</p>
+                  </div>
+                  <div class="lower-text">
+                      <p>Shiori~</p>
+                  </div>
+              </div>
+              <div class="hidden">
+                <img class="hidden-img" src="picture/HEYTEAayaka.png" alt="Description of the hidden image">
+                <div class="hidden-tooltip">Yayy!!! You get a milk tea from Ayaka🧋</div>
+              </div>
+                <div class="btoverlay"></div>
+                <div class="button-container">
+                  <div class="tooltip">Click Me</div>
+                  <img class="arrow-img" src="picture/ayakahere.png" alt="Arrow Image" onclick="toggleBoxSize(), toggleHidden()">
+              </div>
+            </div>
+
+            <div class="dialog about">
+              <div class="title-about">About Shiori~</div>
+              <div class="info-about">Halo !!! Shiori desu~~. I'm a NEET gamer 🎮 and cosplayer 🌸. I'm always online 24 hours a day except when I sleep :D. I play a lot of games and watch a lot of animes, I also read manga and novel. (づ｡◕‿‿◕｡)づ  </div>
+            </div>
+          
+            <div class="dialog-row">
+              <div class="dialog fb">
+                <div class="fb-icon">
+                  <a href="https://www.facebook.com/Nmpp0/">
+                    <img src="picture/fblogo.png" alt="Facebook Icon">
+                  </a>
+                </div>
+                <div class="message-box">
+                    <div class="title-tooltip">Facebook</div>
+                    <div class="info-tooltip">Facebook Info</div>
+                </div>
+              </div>            
+              <div class="dialog disc">
+                <div class="disc-icon">
+                  <a href="https://discord.gg/4tTcuTJN">
+                    <img src="picture/discordlogo.png" alt="Discord Icon">
+                  </a>
+                </div>
+                <div class="message-box">
+                    <div class="title-tooltip">Discord</div>
+                    <div class="info-tooltip">Shiori Kaminagi</div>
+                </div>
+              </div>
+              <div class="dialog steam">
+                <div class="steam-icon">
+                  <a href="https://steamcommunity.com/profiles/76561199215293757/">
+                    <img src="picture/steamlogo.png" alt="Steam Icon">
+                  </a>                  
+                </div>
+                <div class="message-box">
+                    <div class="title-tooltip">Steam</div>
+                    <div class="info-tooltip">Shiori Kaminagi</div>
+                </div>
+              </div>
+              <div class="dialog hoyoacc">
+                <div class="left-button">
+                    <i class="fas fa-chevron-left" onclick="showPrevious()"></i>
+                </div>
+                <div class="content">
+                    <div class="image-container">
+                      <a href="https://www.hoyolab.com/accountCenter/postList?id=6702079">
+                        <img id="hoyoacc-image" src="" alt="Hoyoacc Image">
+                      </a>
+                    </div>
+                    <div class="text-container">
+                        <div id="hoyoacc-name"></div>
+                        <div id="hoyoacc-info"></div>
+                    </div>
+                </div>
+                <div class="right-button">
+                    <i class="fas fa-chevron-right" onclick="showNext()"></i>
+                </div>
+              </div>                       
+            </div>
+
+            <div class="dialog-row">
+              <div class="dialog music">
+                <iframe style="border-radius:10px" src="https://open.spotify.com/embed/album/2CNzlBF3YuhaWR7XMpq6fH?utm_source=generator" width="100%" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" autoplay></iframe>
+              </div>
+              <div class="dialog troll">
+                <div class="image-left">
+                  <img src="picture/ayakalike.png" alt="Left Image">
+                </div>
+                <div class="link-middle">
+                  <a href="https://youtu.be/MbgLYNxM7V0?si=KObCgKaTgpfr_bzn">Click for Ayaka C6</a>
+                </div>
+                <div class="image-right">
+                  <img src="picture/ayakalike2.png" alt="Right Image">
+                </div>
+              </div>
+            </div>
+
+            <div class="dialog end">
+              <div class="image-left">
+                <img src="picture/ayakacorn.png" alt="Left Image">
+              </div>
+              <div class="text-middle">
+                <p>I'm Noob bruh</p>
+              </div>
+              <div class="image-right">
+                <img src="picture/ayakacorn2.png" alt="Right Image">
+              </div>
+            </div>            
+          </div>
+
+          <div class="dialog-col dialog-col-second">
+            <div class="dialog waifu">
+              <div class="waifu-header">My Waifu Picture Board</div>
+              <div class="waifu-content">
+                <button class="prev-btn">&lt;</button>
+                <img class="waifu-img" src="picture/ayaka1.jpg" alt="Waifu Image">
+                <button class="next-btn">&gt;</button>
+              </div>
+            </div>
+              <div class="none">
+              </div>
+          </div>
+          
+      </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
